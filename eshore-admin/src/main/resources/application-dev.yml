@@ -66,7 +66,6 @@ spring:
         url: jdbc:mysql://132.122.1.76:9527/mclz?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
         username: root
         password: s@LRd21iK
-
 #        password: ENC(wUQaW2TuNmvqTOkrmmVd9hTl9VnVwqp2)
       # 从库数据源
       slave:
