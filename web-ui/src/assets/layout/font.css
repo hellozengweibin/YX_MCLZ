@@ -1,0 +1,6 @@
+@font-face {
+    font-family: 'YouSheBiaoTiHei'; /* 重命名字体名 */
+    src: url('./YouSheBiaoTiHei.ttf');
+    font-weight: normal;
+    font-style: normal;
+}

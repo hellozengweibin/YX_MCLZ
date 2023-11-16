@@ -1,0 +1,38 @@
+.search-view {
+    background: #FFFFFF;
+    box-shadow: 0 0 8px 0 rgba(0,0,0,0.04);
+    border-radius: 4px 4px 4px 4px;
+    padding: 0px 10px 10px 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    .s-v-item {
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+    .s-v-ctl {
+      display: flex;
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+    ::v-deep .el-input__inner {
+        min-width: 150px;
+    }
+    .top-right-btn {
+        top: 5px;
+    }
+}
+
+.table-view {
+    overflow: scroll;
+    position: absolute;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    top: 128px;
+}
+
+.app-container {
+    overflow: scroll;
+}

@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: eshore-template
+  profiles:
+    active: dev
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+# MyBatis配置
+mybatis-plus:
+  # 搜索指定包别名
+  typeAliasesPackage: com.eshore.**.domain
+  # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
+  # 加载全局的配置文件
+  configLocation: classpath:mybatis/mybatis-config.xml
+knife4j:
+  basic:
+    username: eshore
+      # Eshore.13%
+    password: Eshore.13%
+#    password: ENC(O/v0dw1fVGOfYwymDqFTZ3esfFEITFn2)
+    enable: true #开启认证
+  production: false #默认是false ,屏蔽所有Swagger的相关资源
+  enable: true #是否开启swagger

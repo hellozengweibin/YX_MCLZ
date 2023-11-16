@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>eshore-components</artifactId>
+        <groupId>com.eshore</groupId>
+        <version>3.8.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
+    <version>1.0-RELEASE</version>
+
+    <artifactId>eshore-encrypt-starter</artifactId>
+    <name>${project.artifactId}</name>
+    <description>数据加解密传输starter封装</description>
+
+    <dependencies>
+
+        <!-- 核心模块-->
+        <!--        <dependency>-->
+        <!--            <groupId>com.eshore</groupId>-->
+        <!--            <artifactId>eshore-framework</artifactId>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>com.eshore</groupId>
+            <artifactId>eshore-common</artifactId>
+        </dependency>
+
+        <!--AES加密算法-->
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.14</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.5</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.eshore</groupId>
+            <artifactId>eshore-log-starter</artifactId>
+            <version>1.0-RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+
+    </dependencies>
+
+</project>

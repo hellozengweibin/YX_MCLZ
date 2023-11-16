@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.business.mapper.EsRouteMapper">
+
+    <resultMap type="EsRoute" id="EsRouteResult">
+        <result property="id" column="id"/>
+        <result property="placeId" column="place_id"/>
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="ip" column="ip"/>
+        <result property="piplineStart" column="pipline_start"/>
+        <result property="piplineEnd" column="pipline_end"/>
+        <result property="online" column="online"/>
+        <result property="positionLeft" column="position_left"/>
+        <result property="positionTop" column="position_top"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+    </resultMap>
+
+    <sql id="selectEsRouteVo">
+        select id,
+               place_id,
+               code,
+               name,
+               ip,
+               pipline_start,
+               pipline_end,
+               online,
+               position_left,
+               position_top,
+               create_by,
+               create_time,
+               update_by,
+               update_time
+        from es_route
+    </sql>
+
+    <select id="selectEsRouteList" parameterType="EsRouteForm" resultMap="EsRouteResult">
+        <include refid="selectEsRouteVo"/>
+        <where>
+            <if test="placeId != null ">and place_id = #{placeId}</if>
+            <if test="code != null  and code != ''">and code = #{code}</if>
+            <if test="name != null  and name != ''">and name like concat('%', #{name}, '%')</if>
+            <if test="ip != null  and ip != ''">and ip = #{ip}</if>
+            <if test="piplineStart != null ">and pipline_start = #{piplineStart}</if>
+            <if test="piplineEnd != null ">and pipline_end = #{piplineEnd}</if>
+            <if test="online != null ">and online = #{online}</if>
+            <if test="positionLeft != null  and positionLeft != ''">and position_left = #{positionLeft}</if>
+            <if test="positionTop != null  and positionTop != ''">and position_top = #{positionTop}</if>
+        </where>
+    </select>
+
+    <select id="selectEsRouteById" parameterType="Integer" resultMap="EsRouteResult">
+        <include refid="selectEsRouteVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertEsRoute" parameterType="EsRoute" useGeneratedKeys="true" keyProperty="id">
+        insert into es_route
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="placeId != null">place_id,</if>
+            <if test="code != null">code,</if>
+            <if test="name != null">name,</if>
+            <if test="ip != null">ip,</if>
+            <if test="piplineStart != null">pipline_start,</if>
+            <if test="piplineEnd != null">pipline_end,</if>
+            <if test="online != null">online,</if>
+            <if test="positionLeft != null">position_left,</if>
+            <if test="positionTop != null">position_top,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="placeId != null">#{placeId},</if>
+            <if test="code != null">#{code},</if>
+            <if test="name != null">#{name},</if>
+            <if test="ip != null">#{ip},</if>
+            <if test="piplineStart != null">#{piplineStart},</if>
+            <if test="piplineEnd != null">#{piplineEnd},</if>
+            <if test="online != null">#{online},</if>
+            <if test="positionLeft != null">#{positionLeft},</if>
+            <if test="positionTop != null">#{positionTop},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+        </trim>
+    </insert>
+
+    <update id="updateEsRoute" parameterType="EsRoute">
+        update es_route
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="placeId != null">place_id = #{placeId},</if>
+            <if test="code != null">code = #{code},</if>
+            <if test="name != null">name = #{name},</if>
+            <if test="ip != null">ip = #{ip},</if>
+            <if test="piplineStart != null">pipline_start = #{piplineStart},</if>
+            <if test="piplineEnd != null">pipline_end = #{piplineEnd},</if>
+            <if test="online != null">online = #{online},</if>
+            <if test="positionLeft != null">position_left = #{positionLeft},</if>
+            <if test="positionTop != null">position_top = #{positionTop},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteEsRouteById" parameterType="Integer">
+        delete
+        from es_route
+        where id = #{id}
+    </delete>
+
+    <delete id="deleteEsRouteByIds" parameterType="String">
+        delete from es_route where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

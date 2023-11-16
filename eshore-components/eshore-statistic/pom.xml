@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>eshore-components</artifactId>
+        <groupId>com.eshore</groupId>
+        <version>3.8.1</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <description>数据统计模块</description>
+    <packaging>jar</packaging>
+    <version>1.0-RELEASE</version>
+    <name>${project.artifactId}</name>
+    <artifactId>eshore-statistic</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.eshore</groupId>
+            <artifactId>eshore-domain</artifactId>
+            <version>1.0-RELEASE</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.eshore</groupId>
+            <artifactId>eshore-business</artifactId>
+            <version>3.8.1</version>
+            <scope>compile</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.eshore</groupId>
+            <artifactId>eshore-common</artifactId>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
+
+
+</project>
