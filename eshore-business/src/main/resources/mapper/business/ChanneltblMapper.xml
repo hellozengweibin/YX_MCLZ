@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.business.mapper.ChanneltblMapper">
+
+    <resultMap type="Channeltbl" id="ChanneltblResult">
+            <result property="id" column="ID"/>
+            <result property="devpubid" column="DevPubID"/>
+            <result property="nickname" column="Nickname"/>
+            <result property="type" column="Type"/>
+            <result property="alive" column="Alive"/>
+            <result property="subtype" column="SubType"/>
+            <result property="channel" column="Channel"/>
+            <result property="capability" column="Capability"/>
+            <result property="chanpubid" column="ChanPubID"/>
+            <result property="dmarker" column="DMarker"/>
+            <result property="storageid" column="StorageID"/>
+            <result property="platid" column="PlatID"/>
+    </resultMap>
+
+    <sql id="selectChanneltblVo">
+        SELECT ID, DevPubID, Nickname, Type, Alive, SubType, Channel, Capability, ChanPubID, DMarker, StorageID, PlatID
+        FROM channeltbl
+    </sql>
+
+    <select id="selectChanneltblList" parameterType="ChanneltblForm" resultMap="ChanneltblResult">
+        <include refid="selectChanneltblVo"/>
+        <where>
+            <if test="devpubid != null  and devpubid != ''">
+                AND DevPubID = #{devpubid}
+            </if>
+            <if test="nickname != null  and nickname != ''">
+                AND Nickname = #{nickname}
+            </if>
+            <if test="type != null ">
+                AND Type = #{type}
+            </if>
+            <if test="alive != null ">
+                AND Alive = #{alive}
+            </if>
+            <if test="subtype != null ">
+                AND SubType = #{subtype}
+            </if>
+            <if test="channel != null ">
+                AND Channel = #{channel}
+            </if>
+            <if test="capability != null ">
+                AND Capability = #{capability}
+            </if>
+            <if test="chanpubid != null  and chanpubid != ''">
+                AND ChanPubID = #{chanpubid}
+            </if>
+            <if test="dmarker != null ">
+                AND DMarker = #{dmarker}
+            </if>
+            <if test="storageid != null ">
+                AND StorageID = #{storageid}
+            </if>
+            <if test="platid != null ">
+                AND PlatID = #{platid}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectChanneltblById" parameterType="Long" resultMap="ChanneltblResult">
+        <include refid="selectChanneltblVo"/>
+        WHERE ID = #{id}
+    </select>
+
+    <insert id="insertChanneltbl" parameterType="Channeltbl" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO channeltbl
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="devpubid != null and devpubid != ''">DevPubID,</if>
+            <if test="nickname != null">Nickname,</if>
+            <if test="type != null">Type,</if>
+            <if test="alive != null">Alive,</if>
+            <if test="subtype != null">SubType,</if>
+            <if test="channel != null">Channel,</if>
+            <if test="capability != null">Capability,</if>
+            <if test="chanpubid != null and chanpubid != ''">ChanPubID,</if>
+            <if test="dmarker != null">DMarker,</if>
+            <if test="storageid != null">StorageID,</if>
+            <if test="platid != null">PlatID,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="devpubid != null and devpubid != ''">#{devpubid},</if>
+            <if test="nickname != null">#{nickname},</if>
+            <if test="type != null">#{type},</if>
+            <if test="alive != null">#{alive},</if>
+            <if test="subtype != null">#{subtype},</if>
+            <if test="channel != null">#{channel},</if>
+            <if test="capability != null">#{capability},</if>
+            <if test="chanpubid != null and chanpubid != ''">#{chanpubid},</if>
+            <if test="dmarker != null">#{dmarker},</if>
+            <if test="storageid != null">#{storageid},</if>
+            <if test="platid != null">#{platid},</if>
+        </trim>
+    </insert>
+
+    <update id="updateChanneltbl" parameterType="Channeltbl">
+        UPDATE channeltbl
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="devpubid != null and devpubid != ''">DevPubID = #{devpubid},</if>
+            <if test="nickname != null">Nickname = #{nickname},</if>
+            <if test="type != null">Type = #{type},</if>
+            <if test="alive != null">Alive = #{alive},</if>
+            <if test="subtype != null">SubType = #{subtype},</if>
+            <if test="channel != null">Channel = #{channel},</if>
+            <if test="capability != null">Capability = #{capability},</if>
+            <if test="chanpubid != null and chanpubid != ''">ChanPubID = #{chanpubid},</if>
+            <if test="dmarker != null">DMarker = #{dmarker},</if>
+            <if test="storageid != null">StorageID = #{storageid},</if>
+            <if test="platid != null">PlatID = #{platid},</if>
+        </trim>
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="deleteChanneltblById" parameterType="Long">
+        DELETE FROM channeltbl WHERE ID = #{id}
+    </delete>
+
+    <delete id="deleteChanneltblByIds" parameterType="String">
+        DELETE FROM channeltbl WHERE ID IN
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
