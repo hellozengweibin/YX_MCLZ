@@ -62,9 +62,9 @@
       <el-table-column label="能力" align="center" prop="capability"/>
       <el-table-column label="ChanPubID" align="center" prop="chanpubid"/>
       <el-table-column label="DMarker" align="center" prop="dmarker">
-        <template slot-scope="scope">
-              <dict-tag :options="dict.type.DMarker" :value="scope.row.dmarker"/>
-        </template>
+<!--        <template slot-scope="scope">-->
+<!--              <dict-tag :options="dict.type.DMarker" :value="scope.row.dmarker"/>-->
+<!--        </template>-->
       </el-table-column>
       <el-table-column label="StorageID" align="center" prop="storageid"/>
       <el-table-column label="PlatID" align="center" prop="platid"/>
@@ -122,7 +122,7 @@ import { listChanneltbl, getChanneltbl, delChanneltbl, addChanneltbl, updateChan
 import {parseTime} from "@/utils/util";
 export default {
   name: "Channeltbl",
-  dicts: ['DMarker'],
+  // dicts: ['DMarker'],
   data() {
     return {
       // 遮罩层
