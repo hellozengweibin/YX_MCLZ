@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.business.mapper.DevtblMapper">
+
+    <resultMap type="Devtbl" id="DevtblResult">
+            <result property="id" column="ID"/>
+            <result property="sn" column="SN"/>
+            <result property="devnickname" column="DevNickname"/>
+            <result property="devpubid" column="DevPubID"/>
+            <result property="devpubidfortel" column="DevPubIDForTel"/>
+            <result property="devpubid3" column="DevPubID3"/>
+            <result property="passwd" column="Passwd"/>
+            <result property="alive" column="Alive"/>
+            <result property="updatetime" column="UpdateTime"/>
+            <result property="homename" column="HomeName"/>
+            <result property="domain" column="Domain"/>
+            <result property="port" column="Port"/>
+            <result property="ip" column="IP"/>
+            <result property="natip" column="NatIp"/>
+            <result property="webportal" column="WebPortal"/>
+            <result property="webloginuser" column="WebLoginUser"/>
+            <result property="webloginpasswd" column="WebLoginPasswd"/>
+            <result property="totaldiskroom" column="TotalDiskRoom"/>
+            <result property="diskroom" column="DiskRoom"/>
+            <result property="areaid" column="AreaID"/>
+            <result property="model" column="Model"/>
+            <result property="sysver" column="SysVer"/>
+            <result property="mrspubid" column="MrsPubID"/>
+            <result property="msspubid" column="MssPubID"/>
+            <result property="vodpubid" column="VodPubID"/>
+            <result property="sipgwpubid" column="SipGWPubID"/>
+            <result property="acspubid" column="ACSPubID"/>
+            <result property="p2pmaxconns" column="P2PMaxConns"/>
+            <result property="relaymode" column="RelayMode"/>
+            <result property="opendate" column="OpenDate"/>
+            <result property="installlocation" column="InstallLocation"/>
+            <result property="linktelphone" column="LinkTelphone"/>
+            <result property="cert" column="Cert"/>
+            <result property="certnum" column="CertNum"/>
+            <result property="opentime" column="OpenTime"/>
+            <result property="closetime" column="CloseTime"/>
+            <result property="status" column="Status"/>
+            <result property="longitude" column="Longitude"/>
+            <result property="latitude" column="Latitude"/>
+            <result property="memo" column="Memo"/>
+            <result property="onvifuri" column="OnvifURI"/>
+            <result property="dmarker" column="DMarker"/>
+            <result property="storageid" column="StorageID"/>
+            <result property="platid" column="PlatID"/>
+    </resultMap>
+
+    <sql id="selectDevtblVo">
+        SELECT ID, SN, DevNickname, DevPubID, DevPubIDForTel, DevPubID3, Passwd, Alive, UpdateTime, HomeName, Domain, Port, IP, NatIp, WebPortal, WebLoginUser, WebLoginPasswd, TotalDiskRoom, DiskRoom, AreaID, Model, SysVer, MrsPubID, MssPubID, VodPubID, SipGWPubID, ACSPubID, P2PMaxConns, RelayMode, OpenDate, InstallLocation, LinkTelphone, Cert, CertNum, OpenTime, CloseTime, Status, Longitude, Latitude, Memo, OnvifURI, DMarker, StorageID, PlatID
+        FROM devtbl
+    </sql>
+
+    <select id="selectDevtblList" parameterType="DevtblForm" resultMap="DevtblResult">
+        <include refid="selectDevtblVo"/>
+        <where>
+            <if test="sn != null  and sn != ''">
+                AND SN = #{sn}
+            </if>
+            <if test="devnickname != null  and devnickname != ''">
+                AND DevNickname LIKE concat('%', #{devnickname}, '%')
+            </if>
+            <if test="devpubid != null  and devpubid != ''">
+                AND DevPubID = #{devpubid}
+            </if>
+            <if test="devpubidfortel != null  and devpubidfortel != ''">
+                AND DevPubIDForTel = #{devpubidfortel}
+            </if>
+            <if test="devpubid3 != null  and devpubid3 != ''">
+                AND DevPubID3 = #{devpubid3}
+            </if>
+            <if test="passwd != null  and passwd != ''">
+                AND Passwd = #{passwd}
+            </if>
+            <if test="alive != null ">
+                AND Alive = #{alive}
+            </if>
+            <if test="updatetime != null ">
+                AND UpdateTime = #{updatetime}
+            </if>
+            <if test="homename != null  and homename != ''">
+                AND HomeName LIKE concat('%', #{homename}, '%')
+            </if>
+            <if test="domain != null  and domain != ''">
+                AND Domain = #{domain}
+            </if>
+            <if test="port != null ">
+                AND Port = #{port}
+            </if>
+            <if test="ip != null  and ip != ''">
+                AND IP = #{ip}
+            </if>
+            <if test="natip != null  and natip != ''">
+                AND NatIp = #{natip}
+            </if>
+            <if test="webportal != null  and webportal != ''">
+                AND WebPortal = #{webportal}
+            </if>
+            <if test="webloginuser != null  and webloginuser != ''">
+                AND WebLoginUser = #{webloginuser}
+            </if>
+            <if test="webloginpasswd != null  and webloginpasswd != ''">
+                AND WebLoginPasswd = #{webloginpasswd}
+            </if>
+            <if test="totaldiskroom != null ">
+                AND TotalDiskRoom = #{totaldiskroom}
+            </if>
+            <if test="diskroom != null ">
+                AND DiskRoom = #{diskroom}
+            </if>
+            <if test="areaid != null ">
+                AND AreaID = #{areaid}
+            </if>
+            <if test="model != null  and model != ''">
+                AND Model = #{model}
+            </if>
+            <if test="sysver != null  and sysver != ''">
+                AND SysVer = #{sysver}
+            </if>
+            <if test="mrspubid != null  and mrspubid != ''">
+                AND MrsPubID = #{mrspubid}
+            </if>
+            <if test="msspubid != null  and msspubid != ''">
+                AND MssPubID = #{msspubid}
+            </if>
+            <if test="vodpubid != null  and vodpubid != ''">
+                AND VodPubID = #{vodpubid}
+            </if>
+            <if test="sipgwpubid != null  and sipgwpubid != ''">
+                AND SipGWPubID = #{sipgwpubid}
+            </if>
+            <if test="acspubid != null  and acspubid != ''">
+                AND ACSPubID = #{acspubid}
+            </if>
+            <if test="p2pmaxconns != null ">
+                AND P2PMaxConns = #{p2pmaxconns}
+            </if>
+            <if test="relaymode != null ">
+                AND RelayMode = #{relaymode}
+            </if>
+            <if test="opendate != null ">
+                AND OpenDate = #{opendate}
+            </if>
+            <if test="installlocation != null  and installlocation != ''">
+                AND InstallLocation = #{installlocation}
+            </if>
+            <if test="linktelphone != null  and linktelphone != ''">
+                AND LinkTelphone = #{linktelphone}
+            </if>
+            <if test="cert != null ">
+                AND Cert = #{cert}
+            </if>
+            <if test="certnum != null  and certnum != ''">
+                AND CertNum = #{certnum}
+            </if>
+            <if test="opentime != null ">
+                AND OpenTime = #{opentime}
+            </if>
+            <if test="closetime != null ">
+                AND CloseTime = #{closetime}
+            </if>
+            <if test="status != null ">
+                AND Status = #{status}
+            </if>
+            <if test="longitude != null ">
+                AND Longitude = #{longitude}
+            </if>
+            <if test="latitude != null ">
+                AND Latitude = #{latitude}
+            </if>
+            <if test="memo != null  and memo != ''">
+                AND Memo = #{memo}
+            </if>
+            <if test="onvifuri != null  and onvifuri != ''">
+                AND OnvifURI = #{onvifuri}
+            </if>
+            <if test="dmarker != null ">
+                AND DMarker = #{dmarker}
+            </if>
+            <if test="storageid != null ">
+                AND StorageID = #{storageid}
+            </if>
+            <if test="platid != null ">
+                AND PlatID = #{platid}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectDevtblById" parameterType="Long" resultMap="DevtblResult">
+        <include refid="selectDevtblVo"/>
+        WHERE ID = #{id}
+    </select>
+
+    <insert id="insertDevtbl" parameterType="Devtbl" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO devtbl
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sn != null and sn != ''">SN,</if>
+            <if test="devnickname != null">DevNickname,</if>
+            <if test="devpubid != null and devpubid != ''">DevPubID,</if>
+            <if test="devpubidfortel != null">DevPubIDForTel,</if>
+            <if test="devpubid3 != null">DevPubID3,</if>
+            <if test="passwd != null">Passwd,</if>
+            <if test="alive != null">Alive,</if>
+            <if test="updatetime != null">UpdateTime,</if>
+            <if test="homename != null">HomeName,</if>
+            <if test="domain != null">Domain,</if>
+            <if test="port != null">Port,</if>
+            <if test="ip != null">IP,</if>
+            <if test="natip != null">NatIp,</if>
+            <if test="webportal != null">WebPortal,</if>
+            <if test="webloginuser != null">WebLoginUser,</if>
+            <if test="webloginpasswd != null">WebLoginPasswd,</if>
+            <if test="totaldiskroom != null">TotalDiskRoom,</if>
+            <if test="diskroom != null">DiskRoom,</if>
+            <if test="areaid != null">AreaID,</if>
+            <if test="model != null">Model,</if>
+            <if test="sysver != null">SysVer,</if>
+            <if test="mrspubid != null">MrsPubID,</if>
+            <if test="msspubid != null">MssPubID,</if>
+            <if test="vodpubid != null">VodPubID,</if>
+            <if test="sipgwpubid != null">SipGWPubID,</if>
+            <if test="acspubid != null">ACSPubID,</if>
+            <if test="p2pmaxconns != null">P2PMaxConns,</if>
+            <if test="relaymode != null">RelayMode,</if>
+            <if test="opendate != null">OpenDate,</if>
+            <if test="installlocation != null">InstallLocation,</if>
+            <if test="linktelphone != null">LinkTelphone,</if>
+            <if test="cert != null">Cert,</if>
+            <if test="certnum != null">CertNum,</if>
+            <if test="opentime != null">OpenTime,</if>
+            <if test="closetime != null">CloseTime,</if>
+            <if test="status != null">Status,</if>
+            <if test="longitude != null">Longitude,</if>
+            <if test="latitude != null">Latitude,</if>
+            <if test="memo != null">Memo,</if>
+            <if test="onvifuri != null">OnvifURI,</if>
+            <if test="dmarker != null">DMarker,</if>
+            <if test="storageid != null">StorageID,</if>
+            <if test="platid != null">PlatID,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="sn != null and sn != ''">#{sn},</if>
+            <if test="devnickname != null">#{devnickname},</if>
+            <if test="devpubid != null and devpubid != ''">#{devpubid},</if>
+            <if test="devpubidfortel != null">#{devpubidfortel},</if>
+            <if test="devpubid3 != null">#{devpubid3},</if>
+            <if test="passwd != null">#{passwd},</if>
+            <if test="alive != null">#{alive},</if>
+            <if test="updatetime != null">#{updatetime},</if>
+            <if test="homename != null">#{homename},</if>
+            <if test="domain != null">#{domain},</if>
+            <if test="port != null">#{port},</if>
+            <if test="ip != null">#{ip},</if>
+            <if test="natip != null">#{natip},</if>
+            <if test="webportal != null">#{webportal},</if>
+            <if test="webloginuser != null">#{webloginuser},</if>
+            <if test="webloginpasswd != null">#{webloginpasswd},</if>
+            <if test="totaldiskroom != null">#{totaldiskroom},</if>
+            <if test="diskroom != null">#{diskroom},</if>
+            <if test="areaid != null">#{areaid},</if>
+            <if test="model != null">#{model},</if>
+            <if test="sysver != null">#{sysver},</if>
+            <if test="mrspubid != null">#{mrspubid},</if>
+            <if test="msspubid != null">#{msspubid},</if>
+            <if test="vodpubid != null">#{vodpubid},</if>
+            <if test="sipgwpubid != null">#{sipgwpubid},</if>
+            <if test="acspubid != null">#{acspubid},</if>
+            <if test="p2pmaxconns != null">#{p2pmaxconns},</if>
+            <if test="relaymode != null">#{relaymode},</if>
+            <if test="opendate != null">#{opendate},</if>
+            <if test="installlocation != null">#{installlocation},</if>
+            <if test="linktelphone != null">#{linktelphone},</if>
+            <if test="cert != null">#{cert},</if>
+            <if test="certnum != null">#{certnum},</if>
+            <if test="opentime != null">#{opentime},</if>
+            <if test="closetime != null">#{closetime},</if>
+            <if test="status != null">#{status},</if>
+            <if test="longitude != null">#{longitude},</if>
+            <if test="latitude != null">#{latitude},</if>
+            <if test="memo != null">#{memo},</if>
+            <if test="onvifuri != null">#{onvifuri},</if>
+            <if test="dmarker != null">#{dmarker},</if>
+            <if test="storageid != null">#{storageid},</if>
+            <if test="platid != null">#{platid},</if>
+        </trim>
+    </insert>
+
+    <update id="updateDevtbl" parameterType="Devtbl">
+        UPDATE devtbl
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="sn != null and sn != ''">SN = #{sn},</if>
+            <if test="devnickname != null">DevNickname = #{devnickname},</if>
+            <if test="devpubid != null and devpubid != ''">DevPubID = #{devpubid},</if>
+            <if test="devpubidfortel != null">DevPubIDForTel = #{devpubidfortel},</if>
+            <if test="devpubid3 != null">DevPubID3 = #{devpubid3},</if>
+            <if test="passwd != null">Passwd = #{passwd},</if>
+            <if test="alive != null">Alive = #{alive},</if>
+            <if test="updatetime != null">UpdateTime = #{updatetime},</if>
+            <if test="homename != null">HomeName = #{homename},</if>
+            <if test="domain != null">Domain = #{domain},</if>
+            <if test="port != null">Port = #{port},</if>
+            <if test="ip != null">IP = #{ip},</if>
+            <if test="natip != null">NatIp = #{natip},</if>
+            <if test="webportal != null">WebPortal = #{webportal},</if>
+            <if test="webloginuser != null">WebLoginUser = #{webloginuser},</if>
+            <if test="webloginpasswd != null">WebLoginPasswd = #{webloginpasswd},</if>
+            <if test="totaldiskroom != null">TotalDiskRoom = #{totaldiskroom},</if>
+            <if test="diskroom != null">DiskRoom = #{diskroom},</if>
+            <if test="areaid != null">AreaID = #{areaid},</if>
+            <if test="model != null">Model = #{model},</if>
+            <if test="sysver != null">SysVer = #{sysver},</if>
+            <if test="mrspubid != null">MrsPubID = #{mrspubid},</if>
+            <if test="msspubid != null">MssPubID = #{msspubid},</if>
+            <if test="vodpubid != null">VodPubID = #{vodpubid},</if>
+            <if test="sipgwpubid != null">SipGWPubID = #{sipgwpubid},</if>
+            <if test="acspubid != null">ACSPubID = #{acspubid},</if>
+            <if test="p2pmaxconns != null">P2PMaxConns = #{p2pmaxconns},</if>
+            <if test="relaymode != null">RelayMode = #{relaymode},</if>
+            <if test="opendate != null">OpenDate = #{opendate},</if>
+            <if test="installlocation != null">InstallLocation = #{installlocation},</if>
+            <if test="linktelphone != null">LinkTelphone = #{linktelphone},</if>
+            <if test="cert != null">Cert = #{cert},</if>
+            <if test="certnum != null">CertNum = #{certnum},</if>
+            <if test="opentime != null">OpenTime = #{opentime},</if>
+            <if test="closetime != null">CloseTime = #{closetime},</if>
+            <if test="status != null">Status = #{status},</if>
+            <if test="longitude != null">Longitude = #{longitude},</if>
+            <if test="latitude != null">Latitude = #{latitude},</if>
+            <if test="memo != null">Memo = #{memo},</if>
+            <if test="onvifuri != null">OnvifURI = #{onvifuri},</if>
+            <if test="dmarker != null">DMarker = #{dmarker},</if>
+            <if test="storageid != null">StorageID = #{storageid},</if>
+            <if test="platid != null">PlatID = #{platid},</if>
+        </trim>
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="deleteDevtblById" parameterType="Long">
+        DELETE FROM devtbl WHERE ID = #{id}
+    </delete>
+
+    <delete id="deleteDevtblByIds" parameterType="String">
+        DELETE FROM devtbl WHERE ID IN
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
+
+<!--1-->
