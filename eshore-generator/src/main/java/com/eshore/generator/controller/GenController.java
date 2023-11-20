@@ -1,15 +1,18 @@
 package com.eshore.generator.controller;
 
+import com.eshore.common.annotation.DataSource;
 import com.eshore.common.annotation.Log;
 import com.eshore.common.core.controller.BaseController;
 import com.eshore.common.core.page.TableDataInfo;
 import com.eshore.common.core.response.CommonResult;
 import com.eshore.common.core.text.Convert;
 import com.eshore.common.enums.BusinessType;
+import com.eshore.common.enums.DataSourceType;
 import com.eshore.generator.domain.GenTable;
 import com.eshore.generator.domain.GenTableColumn;
 import com.eshore.generator.service.IGenTableColumnService;
 import com.eshore.generator.service.IGenTableService;
+import lombok.Data;
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -29,6 +32,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/tool/gen")
+@DataSource(value = DataSourceType.SLAVE2)
 public class GenController extends BaseController {
     @Autowired
     private IGenTableService genTableService;

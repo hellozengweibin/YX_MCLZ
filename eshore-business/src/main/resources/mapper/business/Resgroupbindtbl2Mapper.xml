@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eshore.business.mapper.Resgroupbindtbl2Mapper">
+
+    <resultMap type="Resgroupbindtbl2" id="Resgroupbindtbl2Result">
+            <result property="id" column="ID"/>
+            <result property="resgroupid" column="ResGroupID"/>
+            <result property="bindresid" column="BindResId"/>
+            <result property="bindrestype" column="BindResType"/>
+    </resultMap>
+
+    <sql id="selectResgroupbindtbl2Vo">
+        SELECT ID, ResGroupID, BindResId, BindResType
+        FROM resgroupbindtbl
+    </sql>
+
+    <select id="selectResgroupbindtbl2List" parameterType="Resgroupbindtbl2Form" resultMap="Resgroupbindtbl2Result">
+        <include refid="selectResgroupbindtbl2Vo"/>
+        <where>
+            <if test="resgroupid != null  and resgroupid != ''">
+                AND ResGroupID = #{resgroupid}
+            </if>
+            <if test="bindresid != null  and bindresid != ''">
+                AND BindResId = #{bindresid}
+            </if>
+            <if test="bindrestype != null ">
+                AND BindResType = #{bindrestype}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectResgroupbindtbl2ById" parameterType="Long" resultMap="Resgroupbindtbl2Result">
+        <include refid="selectResgroupbindtbl2Vo"/>
+        WHERE ID = #{id}
+    </select>
+
+    <insert id="insertResgroupbindtbl2" parameterType="Resgroupbindtbl2" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO resgroupbindtbl
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="resgroupid != null">ResGroupID,</if>
+            <if test="bindresid != null">BindResId,</if>
+            <if test="bindrestype != null">BindResType,</if>
+        </trim>
+        <trim prefix="VALUES (" suffix=")" suffixOverrides=",">
+            <if test="resgroupid != null">#{resgroupid},</if>
+            <if test="bindresid != null">#{bindresid},</if>
+            <if test="bindrestype != null">#{bindrestype},</if>
+        </trim>
+    </insert>
+
+    <update id="updateResgroupbindtbl2" parameterType="Resgroupbindtbl2">
+        UPDATE resgroupbindtbl
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="resgroupid != null">ResGroupID = #{resgroupid},</if>
+            <if test="bindresid != null">BindResId = #{bindresid},</if>
+            <if test="bindrestype != null">BindResType = #{bindrestype},</if>
+        </trim>
+        WHERE ID = #{id}
+    </update>
+
+    <delete id="deleteResgroupbindtbl2ById" parameterType="Long">
+        DELETE FROM resgroupbindtbl WHERE ID = #{id}
+    </delete>
+
+    <delete id="deleteResgroupbindtbl2ByIds" parameterType="String">
+        DELETE FROM resgroupbindtbl WHERE ID IN
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>
