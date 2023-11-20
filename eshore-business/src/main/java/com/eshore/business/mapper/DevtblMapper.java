@@ -9,7 +9,7 @@ import com.eshore.business.domain.Devtbl;
 import com.eshore.business.domain.form.DevtblForm;
 
 /**
- * 创建设备Mapper接口
+ * 1创建设备Mapper接口
  *
  * @author eshore
  * @date 2023-11-16

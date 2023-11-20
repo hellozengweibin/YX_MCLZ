@@ -18,7 +18,7 @@ import java.util.Date;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 /**
- * 创建设备对象 devtbl
+ * 1创建设备对象 devtbl
  *
  * @author eshore
  * @date 2023-11-16

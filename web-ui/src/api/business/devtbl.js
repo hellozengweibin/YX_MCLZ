@@ -1,6 +1,6 @@
 import request from '@/utils/request'
 
-// 查询创建设备列表
+// 1查询创建设备列表
 export function listDevtbl(query) {
     return request({
         url: '/business/devtbl/list',

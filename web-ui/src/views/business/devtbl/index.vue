@@ -1,7 +1,7 @@
 <template>
   <div class="app-container">
     <el-form :model="queryParams" ref="queryForm" size="small" :inline="true" v-show="showSearch" label-width="68px">
-<!--      <el-form-item prop="sn">-->
+<!--      1<el-form-item prop="sn">-->
 <!--        <el-input v-model="queryParams.sn" placeholder="请输入产品SN；" clearable @keyup.enter.native="handleQuery"/>-->
 <!--      </el-form-item>-->
 <!--      <el-form-item prop="devnickname">-->

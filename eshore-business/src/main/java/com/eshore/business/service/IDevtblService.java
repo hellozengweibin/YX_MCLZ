@@ -15,7 +15,7 @@ import com.eshore.business.domain.form.DevtblForm;
  */
 public interface IDevtblService extends IService<Devtbl> {
     /**
-     * 查询创建设备
+     * 1查询创建设备
      *
      * @param id 创建设备主键
      * @return 创建设备
