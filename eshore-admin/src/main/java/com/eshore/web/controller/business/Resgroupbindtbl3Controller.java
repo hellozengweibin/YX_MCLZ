@@ -86,9 +86,10 @@ public class Resgroupbindtbl3Controller extends BaseController {
     @PreAuthorize("@ss.hasPermi('business:resgroupbindtbl3:add')")
     @Log(title = "resgroupbindtbl3", businessType = BusinessType.INSERT)
     @PostMapping
-    public CommonResult<Boolean> add(@RequestBody Resgroupbindtbl3Form resgroupbindtbl3) {
-        boolean result = resgroupbindtbl3Service.saveOrUpdate(BeanUtil.copyProperties(resgroupbindtbl3,Resgroupbindtbl3. class));
-        return result ? ResponseGenerator.genSuccessResult() : ResponseGenerator.genFailResult("新增失败");
+    public int add(@RequestBody Resgroupbindtbl3 resgroupbindtbl3) {
+//    public CommonResult<Boolean> add(@RequestBody Resgroupbindtbl3Form resgroupbindtbl3) {
+        int i = resgroupbindtbl3Service.insertResgroupbindtbl3(resgroupbindtbl3);
+        return i;
     }
 
     /**

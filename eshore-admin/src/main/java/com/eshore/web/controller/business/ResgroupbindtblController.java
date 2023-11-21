@@ -86,9 +86,12 @@ public class ResgroupbindtblController extends BaseController {
     @PreAuthorize("@ss.hasPermi('business:resgroupbindtbl:add')")
     @Log(title = "创建资源组资源绑定", businessType = BusinessType.INSERT)
     @PostMapping
-    public CommonResult<Boolean> add(@RequestBody ResgroupbindtblForm resgroupbindtbl) {
-        boolean result = resgroupbindtblService.saveOrUpdate(BeanUtil.copyProperties(resgroupbindtbl,Resgroupbindtbl. class));
-        return result ? ResponseGenerator.genSuccessResult() : ResponseGenerator.genFailResult("新增失败");
+    public int add(@RequestBody Resgroupbindtbl resgroupbindtbl) {
+//    public CommonResult<Boolean> add(@RequestBody ResgroupbindtblForm resgroupbindtbl) {
+//        boolean result = resgroupbindtblService.saveOrUpdate(BeanUtil.copyProperties(resgroupbindtbl,Resgroupbindtbl. class));
+        int i = resgroupbindtblService.insertResgroupbindtbl(resgroupbindtbl);
+//        return result ? ResponseGenerator.genSuccessResult() : ResponseGenerator.genFailResult("新增失败");
+        return i;
     }
 
     /**

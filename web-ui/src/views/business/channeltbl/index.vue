@@ -4,30 +4,30 @@
       <el-form-item prop="devpubid">
         <el-input v-model="queryParams.devpubid" placeholder="请输入一级设备账号；" clearable @keyup.enter.native="handleQuery"/>
       </el-form-item>
-      <el-form-item prop="nickname">
-        <el-input v-model="queryParams.nickname" placeholder="请输入通道昵称；" clearable @keyup.enter.native="handleQuery"/>
-      </el-form-item>
-      <el-form-item prop="alive">
-        <el-input v-model="queryParams.alive" placeholder="请输入Alive" clearable @keyup.enter.native="handleQuery"/>
-      </el-form-item>
-      <el-form-item prop="channel">
-        <el-input v-model="queryParams.channel" placeholder="请输入通道数；" clearable @keyup.enter.native="handleQuery"/>
-      </el-form-item>
-      <el-form-item prop="capability">
-        <el-input v-model="queryParams.capability" placeholder="请输入能力" clearable @keyup.enter.native="handleQuery"/>
-      </el-form-item>
-      <el-form-item prop="chanpubid">
-        <el-input v-model="queryParams.chanpubid" placeholder="请输入ChanPubID" clearable @keyup.enter.native="handleQuery"/>
-      </el-form-item>
-      <el-form-item prop="dmarker">
-        <el-input v-model="queryParams.dmarker" placeholder="请输入DMarker" clearable @keyup.enter.native="handleQuery"/>
-      </el-form-item>
-      <el-form-item prop="storageid">
-        <el-input v-model="queryParams.storageid" placeholder="请输入StorageID" clearable @keyup.enter.native="handleQuery"/>
-      </el-form-item>
-      <el-form-item prop="platid">
-        <el-input v-model="queryParams.platid" placeholder="请输入PlatID" clearable @keyup.enter.native="handleQuery"/>
-      </el-form-item>
+<!--      <el-form-item prop="nickname">-->
+<!--        <el-input v-model="queryParams.nickname" placeholder="请输入通道昵称；" clearable @keyup.enter.native="handleQuery"/>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item prop="alive">-->
+<!--        <el-input v-model="queryParams.alive" placeholder="请输入Alive" clearable @keyup.enter.native="handleQuery"/>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item prop="channel">-->
+<!--        <el-input v-model="queryParams.channel" placeholder="请输入通道数；" clearable @keyup.enter.native="handleQuery"/>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item prop="capability">-->
+<!--        <el-input v-model="queryParams.capability" placeholder="请输入能力" clearable @keyup.enter.native="handleQuery"/>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item prop="chanpubid">-->
+<!--        <el-input v-model="queryParams.chanpubid" placeholder="请输入ChanPubID" clearable @keyup.enter.native="handleQuery"/>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item prop="dmarker">-->
+<!--        <el-input v-model="queryParams.dmarker" placeholder="请输入DMarker" clearable @keyup.enter.native="handleQuery"/>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item prop="storageid">-->
+<!--        <el-input v-model="queryParams.storageid" placeholder="请输入StorageID" clearable @keyup.enter.native="handleQuery"/>-->
+<!--      </el-form-item>-->
+<!--      <el-form-item prop="platid">-->
+<!--        <el-input v-model="queryParams.platid" placeholder="请输入PlatID" clearable @keyup.enter.native="handleQuery"/>-->
+<!--      </el-form-item>-->
       <el-form-item>
         <el-button type="primary" icon="el-icon-search" size="small" @click="handleQuery">搜索</el-button>
         <el-button icon="el-icon-refresh" size="small" @click="resetQuery">重置</el-button>
@@ -35,18 +35,18 @@
     </el-form>
 
     <el-row :gutter="10" class="mb8">
-      <el-col :span="1.5">
-        <el-button type="primary" plain icon="el-icon-plus" size="small" @click="handleAdd" v-hasPermi="['business:channeltbl:add']">新增</el-button>
-      </el-col>
-      <el-col :span="1.5">
-        <el-button type="success" plain icon="el-icon-edit" size="small" :disabled="single" @click="handleUpdate" v-hasPermi="['business:channeltbl:edit']">修改</el-button>
-      </el-col>
+<!--      <el-col :span="1.5">-->
+<!--        <el-button type="primary" plain icon="el-icon-plus" size="small" @click="handleAdd" v-hasPermi="['business:channeltbl:add']">新增</el-button>-->
+<!--      </el-col>-->
+<!--      <el-col :span="1.5">-->
+<!--        <el-button type="success" plain icon="el-icon-edit" size="small" :disabled="single" @click="handleUpdate" v-hasPermi="['business:channeltbl:edit']">修改</el-button>-->
+<!--      </el-col>-->
       <el-col :span="1.5">
         <el-button type="danger" plain icon="el-icon-delete" size="small" :disabled="multiple" @click="handleDelete" v-hasPermi="['business:channeltbl:remove']">删除</el-button>
       </el-col>
-      <el-col :span="1.5">
-        <el-button type="warning" plain icon="el-icon-download" size="small" @click="handleExport" v-hasPermi="['business:channeltbl:export']">导出</el-button>
-      </el-col>
+<!--      <el-col :span="1.5">-->
+<!--        <el-button type="warning" plain icon="el-icon-download" size="small" @click="handleExport" v-hasPermi="['business:channeltbl:export']">导出</el-button>-->
+<!--      </el-col>-->
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 

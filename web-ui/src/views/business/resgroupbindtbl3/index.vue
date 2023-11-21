@@ -14,15 +14,15 @@
       <el-col :span="1.5">
         <el-button type="primary" plain icon="el-icon-plus" size="small" @click="handleAdd" v-hasPermi="['business:resgroupbindtbl3:add']">新增</el-button>
       </el-col>
-      <el-col :span="1.5">
-        <el-button type="success" plain icon="el-icon-edit" size="small" :disabled="single" @click="handleUpdate" v-hasPermi="['business:resgroupbindtbl3:edit']">修改</el-button>
-      </el-col>
-      <el-col :span="1.5">
-        <el-button type="danger" plain icon="el-icon-delete" size="small" :disabled="multiple" @click="handleDelete" v-hasPermi="['business:resgroupbindtbl3:remove']">删除</el-button>
-      </el-col>
-      <el-col :span="1.5">
-        <el-button type="warning" plain icon="el-icon-download" size="small" @click="handleExport" v-hasPermi="['business:resgroupbindtbl3:export']">导出</el-button>
-      </el-col>
+<!--      <el-col :span="1.5">-->
+<!--        <el-button type="success" plain icon="el-icon-edit" size="small" :disabled="single" @click="handleUpdate" v-hasPermi="['business:resgroupbindtbl3:edit']">修改</el-button>-->
+<!--      </el-col>-->
+<!--      <el-col :span="1.5">-->
+<!--        <el-button type="danger" plain icon="el-icon-delete" size="small" :disabled="multiple" @click="handleDelete" v-hasPermi="['business:resgroupbindtbl3:remove']">删除</el-button>-->
+<!--      </el-col>-->
+<!--      <el-col :span="1.5">-->
+<!--        <el-button type="warning" plain icon="el-icon-download" size="small" @click="handleExport" v-hasPermi="['business:resgroupbindtbl3:export']">导出</el-button>-->
+<!--      </el-col>-->
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
@@ -48,6 +48,12 @@
           <el-form-item label="ResGroupID" prop="resgroupid">
             <el-input v-model="form.resgroupid" placeholder="请输入ResGroupID"/>
           </el-form-item>
+        <el-form-item label="BindResId" prop="bindresid">
+          <el-input v-model="form.bindresid" placeholder="请输入BindResId"/>
+        </el-form-item>
+        <el-form-item label="BindResType" prop="BindResType">
+          <el-input v-model="form.bindrestype" placeholder="请输入BindResType"/>
+        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>

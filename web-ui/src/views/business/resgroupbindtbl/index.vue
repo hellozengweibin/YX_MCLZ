@@ -17,15 +17,15 @@
       <el-col :span="1.5">
         <el-button type="primary" plain icon="el-icon-plus" size="small" @click="handleAdd" v-hasPermi="['business:resgroupbindtbl:add']">新增</el-button>
       </el-col>
-      <el-col :span="1.5">
-        <el-button type="success" plain icon="el-icon-edit" size="small" :disabled="single" @click="handleUpdate" v-hasPermi="['business:resgroupbindtbl:edit']">修改</el-button>
-      </el-col>
-      <el-col :span="1.5">
-        <el-button type="danger" plain icon="el-icon-delete" size="small" :disabled="multiple" @click="handleDelete" v-hasPermi="['business:resgroupbindtbl:remove']">删除</el-button>
-      </el-col>
-      <el-col :span="1.5">
-        <el-button type="warning" plain icon="el-icon-download" size="small" @click="handleExport" v-hasPermi="['business:resgroupbindtbl:export']">导出</el-button>
-      </el-col>
+<!--      <el-col :span="1.5">-->
+<!--        <el-button type="success" plain icon="el-icon-edit" size="small" :disabled="single" @click="handleUpdate" v-hasPermi="['business:resgroupbindtbl:edit']">修改</el-button>-->
+<!--      </el-col>-->
+<!--      <el-col :span="1.5">-->
+<!--        <el-button type="danger" plain icon="el-icon-delete" size="small" :disabled="multiple" @click="handleDelete" v-hasPermi="['business:resgroupbindtbl:remove']">删除</el-button>-->
+<!--      </el-col>-->
+<!--      <el-col :span="1.5">-->
+<!--        <el-button type="warning" plain icon="el-icon-download" size="small" @click="handleExport" v-hasPermi="['business:resgroupbindtbl:export']">导出</el-button>-->
+<!--      </el-col>-->
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
 
@@ -54,6 +54,9 @@
           <el-form-item label="资源帐号" prop="bindresid">
             <el-input v-model="form.bindresid" placeholder="请输入资源帐号"/>
           </el-form-item>
+        <el-form-item label="绑定类型" prop="bindrestype">
+          <el-input v-model="form.bindrestype" placeholder="请输入绑定类型"/>
+        </el-form-item>
       </el-form>
       <div slot="footer" class="dialog-footer">
         <el-button type="primary" @click="submitForm">确 定</el-button>
