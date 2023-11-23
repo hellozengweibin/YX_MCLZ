@@ -23,8 +23,65 @@
 <!--      <el-col :span="1.5">-->
 <!--        <el-button type="warning" plain icon="el-icon-download" size="small" @click="handleExport" v-hasPermi="['business:resgroupbindtbl3:export']">导出</el-button>-->
 <!--      </el-col>-->
+
+      <el-col :span="1.5">
+        <el-button
+          type="success"
+          plain
+          icon="el-icon-upload"
+          size="small"
+          @click="handleUpload"
+        >批量导入</el-button>
+      </el-col>
+
       <right-toolbar :showSearch.sync="showSearch" @queryTable="getList"></right-toolbar>
     </el-row>
+
+    <!--    &lt;!&ndash; 批量导入弹框 &ndash;&gt;-->
+    <el-dialog
+      title="批量导入"
+      :visible.sync="uploadDialog"
+      width="40%"
+      append-to-body
+      @close="handleUploadClose"
+    >
+      <el-form label-position="right" label-width="95px">
+
+        <el-form-item label="模板下载：">
+          <el-col :span="1.5">
+            <a href="./Import_template.xlsx" download="导入模板.xlsx">
+              <el-button type="primary" plain icon="el-icon-download" size="mini">下载导入模板</el-button>
+            </a>
+          </el-col>
+        </el-form-item>
+
+        <el-form-item label="上传文件：">
+          <el-upload
+            ref="upload"
+            :action="uploadFileUrl"
+            :file-list="fileList"
+            :limit="1"
+            :before-upload="handleBeforeUpload"
+            :on-error="handleUploadError"
+            :on-success="handleFileSuccess"
+            :headers="headers"
+            accept=".xls,.xlsx"
+            :show-file-list="false"
+          >
+            <!-- 上传按钮 -->
+            <el-button
+              type="success"
+              plain
+              icon="el-icon-upload"
+              size="small"
+              accept=".xls,.xlsx"
+            >点击上传模板文件</el-button>
+          </el-upload>
+        </el-form-item>
+      </el-form>
+
+    </el-dialog>
+
 
     <el-table v-loading="loading" :data="resgroupbindtbl3List" @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" align="center"/>
@@ -66,10 +123,13 @@
 <script>
 import { listResgroupbindtbl3, getResgroupbindtbl3, delResgroupbindtbl3, addResgroupbindtbl3, updateResgroupbindtbl3 } from "@/api/business/resgroupbindtbl3";
 import {parseTime} from "@/utils/util";
+import {getToken} from "@/utils/auth";
 export default {
   name: "Resgroupbindtbl3",
   data() {
     return {
+      // 批量导入
+      uploadDialog: false,
       // 遮罩层
       loading: true,
       // 选中数组
@@ -100,13 +160,54 @@ export default {
       form: {},
       // 表单校验
       rules: {
-      }
+      },
+      baseUrl: process.env.VUE_APP_BASE_API,
+      uploadFileUrl: process.env.VUE_APP_BASE_API + "/business/resgroupbindtbl3/import",
+      headers: {
+        Authorization: "Bearer " + getToken(),
+      },
+      fileList: [],
     };
   },
   created() {
     this.getList();
   },
   methods: {
+    handleUpload() {
+      this.uploadDialog = true
+    },
+    // 上传前校检格式和大小
+    handleBeforeUpload(file) {
+      this.$modal.loading('正在上传中，请稍候...')
+      return true
+    },
+    // 上传失败
+    handleUploadError(err) {
+      console.log(err)
+      this.$modal.msgError('文件上传失败，请重试')
+      this.$modal.closeLoading()
+    },
+    // 上传成功
+    handleFileSuccess(response, file, fileList) {
+      if (response.code !== 200) {
+        console.log(response.msg)
+        this.$message({
+          type: 'error',
+          dangerouslyUseHTMLString: true,
+          message: response.msg.replaceAll('\r\n', '<br />')
+        })
+        // this.$message.error(response.msg)
+      } else {
+        this.$message.success(response.msg)
+      }
+      this.$refs.upload.clearFiles()
+      setTimeout(() => {
+        this.$modal.closeLoading()
+      }, 2000)
+    },
+    handleUploadClose() {
+      this.$refs['upload'] && this.$refs['upload'].clearFiles()
+    },
     /** 查询resgroupbindtbl3列表 */
     getList() {
       this.loading = true;

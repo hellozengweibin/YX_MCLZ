@@ -5,6 +5,7 @@ import java.util.List;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.eshore.business.domain.Resgroupbindtbl3;
 import com.eshore.business.domain.form.Resgroupbindtbl3Form;
+import org.springframework.web.multipart.MultipartFile;
 
 
 /**
@@ -61,4 +62,9 @@ public interface IResgroupbindtbl3Service extends IService<Resgroupbindtbl3> {
      * @return 结果
      */
      int deleteResgroupbindtbl3ById(Long id);
+
+    /**
+     * 批量导入
+     */
+    public boolean importData(MultipartFile file) throws Exception;
 }

@@ -32,15 +32,15 @@ public class Resgroupbindtbl3 extends BaseEntity implements Serializable {
     private Long id;
 
     /** ResGroupID */
-    @Excel(name = "ResGroupID")
+    @Excel(name = "资源组帐号")
     private String resgroupid;
 
     /** BindResId */
-    @Excel(name = "BindResId")
+    @Excel(name = "资源帐号")
     private String bindresid;
 
     /** BindResType */
-    @Excel(name = "BindResType")
+    @Excel(name = "绑定类型")
     private Long bindrestype;
 
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletResponse;
 
 import cn.hutool.core.bean.BeanUtil;
+import com.eshore.common.annotation.Encrypt;
 import com.eshore.common.core.response.CommonResult;
 import com.eshore.common.core.response.ResponseGenerator;
 import io.swagger.annotations.Api;
@@ -28,6 +29,7 @@ import com.eshore.business.domain.vo.Resgroupbindtbl2VO;
 import com.eshore.business.service.IResgroupbindtbl2Service;
 import com.eshore.common.utils.poi.ExcelUtil;
 import com.eshore.common.core.page.TableDataInfo;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * resgroupbindtbl2Controller
@@ -116,5 +118,13 @@ public class Resgroupbindtbl2Controller extends BaseController {
     @DeleteMapping("/del")
     public CommonResult<Integer> remove(@RequestBody Long[] ids) {
         return ResponseGenerator.genSuccessResult(resgroupbindtbl2Service.deleteResgroupbindtbl2ByIds(ids));
+    }
+
+    @Encrypt(isEncypt = false)
+    @Log(title = "工单导入", businessType = BusinessType.IMPORT)
+    @PostMapping("/import")
+    public CommonResult importData(MultipartFile file) throws Exception {
+        return toResult(resgroupbindtbl2Service.importData(file));
+
     }
 }
