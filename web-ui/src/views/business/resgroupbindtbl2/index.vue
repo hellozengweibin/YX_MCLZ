@@ -102,21 +102,37 @@
     <pagination v-show="total>0" :total="total" :page.sync="queryParams.pageNum" :limit.sync="queryParams.pageSize" @pagination="getList"/>
 
     <!-- 添加或修改resgroupbindtbl2对话框 -->
-    <el-dialog :title="title" :visible.sync="open" width="600px" append-to-body>
-      <el-form ref="form" :model="form" :rules="rules" label-width="110px">
+    <el-dialog :title="title" :visible.sync="open" width="1000px" append-to-body>
+      <div class="el-dialog-div">
+        <el-form ref="form" :model="form" :rules="rules" label-width="110px">
           <el-form-item label="ResGroupID" prop="resgroupid">
-            <el-input v-model="form.resgroupid" placeholder="请输入ResGroupID"/>
+            <el-input v-model="form.resgroupid" :disabled="true" placeholder="请输入ResGroupID"/>
           </el-form-item>
           <el-form-item label="BindResId" prop="bindresid">
             <el-input v-model="form.bindresid" placeholder="请输入BindResId"/>
           </el-form-item>
-        <el-form-item label="BindResType" prop="bindrestype">
-          <el-input v-model="form.bindrestype" placeholder="请输入BindResType"/>
-        </el-form-item>
-      </el-form>
-      <div slot="footer" class="dialog-footer">
-        <el-button type="primary" @click="submitForm">确 定</el-button>
-        <el-button @click="cancel">取 消</el-button>
+          <el-form-item label="BindResType" prop="bindrestype">
+            <el-input v-model="form.bindrestype" :disabled="true" placeholder="请输入BindResType"/>
+          </el-form-item>
+        </el-form>
+      </div>
+
+      <div class="el-dialog-div">
+        <el-form ref="form" :model="form2" :rules="rules" label-width="110px">
+            <el-form-item label="ResGroupID" prop="resgroupid">
+              <el-input v-model="form2.resgroupid" :disabled="true" placeholder="请输入ResGroupID"/>
+            </el-form-item>
+            <el-form-item label="BindResId" prop="bindresid">
+              <el-input v-model="form2.bindresid" placeholder="请输入BindResId"/>
+            </el-form-item>
+          <el-form-item label="BindResType" prop="bindrestype">
+            <el-input v-model="form2.bindrestype" :disabled="true" placeholder="请输入BindResType"/>
+          </el-form-item>
+        </el-form>
+        <div slot="footer" class="dialog-footer" style="float: right">
+          <el-button type="primary" @click="submitForm">确 定</el-button>
+          <el-button @click="cancel">取 消</el-button>
+        </div>
       </div>
     </el-dialog>
   </div>
@@ -159,7 +175,14 @@ export default {
         bindrestype: null
       },
       // 表单参数
-      form: {},
+      form: {
+        resgroupid:44010000002160000018,
+        bindrestype:132
+      },
+      form2: {
+        resgroupid:44010000002160000031,
+        bindrestype:132
+      },
       // 表单校验
       rules: {
       },
@@ -264,6 +287,11 @@ export default {
         this.form = response.data;
         this.open = true;
         this.title = "修改resgroupbindtbl2";
+        this.form.resgroupid = 44020000002160000018;
+
+        this.form.bindrestype = 132;
+        this.form2.resgroupid = 44020000002160000031;
+        this.form2.bindrestype = 132;
       });
     },
     /** 提交按钮 */
@@ -278,6 +306,11 @@ export default {
             });
           } else {
             addResgroupbindtbl2(this.form).then(response => {
+              this.$modal.msgSuccess("新增成功");
+              this.open = false;
+              this.getList();
+            });
+            addResgroupbindtbl2(this.form2).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();
@@ -304,3 +337,9 @@ export default {
 }
 };
 </script>
+<style lang="scss" scoped>
+.el-dialog-div{
+  height: 30vh;//如果高度过高，可用max-height
+  overflow: auto;
+}
+</style>
