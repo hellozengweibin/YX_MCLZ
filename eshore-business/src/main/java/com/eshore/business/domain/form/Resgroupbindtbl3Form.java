@@ -26,7 +26,6 @@ import java.io.Serializable;
 @ApiModel(value = "resgroupbindtbl3对象")
 @Data
 @TableName("resgroupbindtbl")
-@DataSource(value = DataSourceType.SLAVE2)
 public class Resgroupbindtbl3Form extends BaseEntity implements Serializable {
     private static final long serialVersionUID = 1L;
 

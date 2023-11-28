@@ -308,7 +308,7 @@ export default {
               this.open = false;
               this.getList();
             });
-            addResgroupbindtbl3(this.form).then(response => {
+            addResgroupbindtbl3(this.form2).then(response => {
               this.$modal.msgSuccess("新增成功");
               this.open = false;
               this.getList();

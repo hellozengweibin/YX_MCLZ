@@ -30,7 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @date 2023-11-20
  */
 @Service
-@DataSource(value = DataSourceType.SLAVE2)
+@DataSource(value = DataSourceType.SLAVE3)
 public class Resgroupbindtbl3ServiceImpl extends ServiceImpl<Resgroupbindtbl3Mapper,Resgroupbindtbl3> implements IResgroupbindtbl3Service {
     @Autowired
     private Resgroupbindtbl3Mapper resgroupbindtbl3Mapper;

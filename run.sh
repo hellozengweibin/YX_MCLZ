@@ -1,10 +1,10 @@
 #!/bin/sh
 # ./ry.sh start 启动 stop 停止 restart 重启 status 状态
-AppName=aiBox.jar
+AppName=eshore-template.jar
 
 # JVM参数
 JVM_OPTS="-Djasypt.encryptor.password=jtsb -Dname=$AppName  -Duser.timezone=Asia/Shanghai -Xms512m -Xmx1024m -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -XX:+PrintGCDateStamps  -XX:+PrintGCDetails -XX:NewRatio=1 -XX:SurvivorRatio=30 -XX:+UseParallelGC -XX:+UseParallelOldGC"
-APP_HOME=`pwd`
+APP_HOME=/home/aiteam/project/mclz
 LOG_PATH=$APP_HOME/logs/$AppName.log
 
 if [ "$1" = "" ];
