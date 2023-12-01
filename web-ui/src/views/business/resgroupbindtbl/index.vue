@@ -187,11 +187,11 @@ export default {
       },
       // 表单参数
       form: {
-        resgroupid:44020000002160000001,
+        resgroupid:'44020000002160000001',
         bindrestype:131
       },
       form2: {
-        resgroupid:44020000002160000006,
+        resgroupid:'44020000002160000006',
         bindrestype:131
       },
       // 表单校验
@@ -289,10 +289,9 @@ export default {
       this.reset();
       this.open = true;
       this.title = "添加创建资源组资源绑定";
-      this.form.resgroupid = 44020000002160000001;
-
+      this.form.resgroupid = '44020000002160000001';
       this.form.bindrestype = 131;
-      this.form2.resgroupid = 44020000002160000006;
+      this.form2.resgroupid = '44020000002160000006';
       this.form2.bindrestype = 131;
     },
     /** 修改按钮操作 */

@@ -176,11 +176,11 @@ export default {
       },
       // 表单参数
       form: {
-        resgroupid:44010000002160000018,
+        resgroupid:'44010000002160000018',
         bindrestype:132
       },
       form2: {
-        resgroupid:44010000002160000031,
+        resgroupid:'44010000002160000031',
         bindrestype:132
       },
       // 表单校验
@@ -278,10 +278,9 @@ export default {
       this.reset();
       this.open = true;
       this.title = "添加resgroupbindtbl2";
-      this.form.resgroupid = 44020000002160000018;
-
+      this.form.resgroupid = '44020000002160000018';
       this.form.bindrestype = 132;
-      this.form2.resgroupid = 44020000002160000031;
+      this.form2.resgroupid = '44020000002160000031';
       this.form2.bindrestype = 132;
     },
     /** 修改按钮操作 */
