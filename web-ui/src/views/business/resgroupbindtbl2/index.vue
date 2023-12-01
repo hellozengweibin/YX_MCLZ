@@ -278,6 +278,11 @@ export default {
       this.reset();
       this.open = true;
       this.title = "添加resgroupbindtbl2";
+      this.form.resgroupid = 44020000002160000018;
+
+      this.form.bindrestype = 132;
+      this.form2.resgroupid = 44020000002160000031;
+      this.form2.bindrestype = 132;
     },
     /** 修改按钮操作 */
     handleUpdate(row) {
@@ -287,11 +292,6 @@ export default {
         this.form = response.data;
         this.open = true;
         this.title = "修改resgroupbindtbl2";
-        this.form.resgroupid = 44020000002160000018;
-
-        this.form.bindrestype = 132;
-        this.form2.resgroupid = 44020000002160000031;
-        this.form2.bindrestype = 132;
       });
     },
     /** 提交按钮 */
