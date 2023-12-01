@@ -61,6 +61,7 @@
                 AND PlatID = #{platid}
             </if>
         </where>
+        ORDER BY ID DESC
     </select>
 
     <select id="selectChanneltblById" parameterType="Long" resultMap="ChanneltblResult">

@@ -189,6 +189,7 @@
                 AND PlatID = #{platid}
             </if>
         </where>
+        ORDER BY ID DESC
     </select>
 
     <select id="selectDevtblById" parameterType="Long" resultMap="DevtblResult">

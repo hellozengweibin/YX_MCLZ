@@ -29,6 +29,7 @@
                 AND BindResType = #{bindrestype}
             </if>
         </where>
+        ORDER BY ID DESC
     </select>
 
     <select id="selectResgroupbindtblById" parameterType="Long" resultMap="ResgroupbindtblResult">
