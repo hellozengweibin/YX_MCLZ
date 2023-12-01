@@ -3,6 +3,7 @@ package com.eshore.business.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.eshore.domain.entity.biz.EsRoute;
 import com.eshore.domain.model.form.EsRouteForm;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -12,6 +13,7 @@ import java.util.List;
  * @author eshore
  * @date 2022-09-13
  */
+@Mapper
 public interface EsRouteMapper extends BaseMapper<EsRoute> {
     /**
      * 查询通道

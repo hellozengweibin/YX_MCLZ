@@ -1,6 +1,8 @@
 package com.eshore.business.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.eshore.common.annotation.DataSource;
+import com.eshore.common.enums.DataSourceType;
 import com.eshore.domain.entity.biz.EsRoute;
 import com.eshore.domain.model.form.EsRouteForm;
 import com.eshore.business.mapper.EsRouteMapper;
@@ -19,6 +21,7 @@ import java.util.List;
  * @date 2022-09-13
  */
 @Service
+@DataSource(value = DataSourceType.SLAVE1)
 public class EsRouteServiceImpl extends ServiceImpl<EsRouteMapper, EsRoute> implements IEsRouteService {
     @Autowired
     private EsRouteMapper esRouteMapper;

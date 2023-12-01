@@ -22,7 +22,6 @@ import java.io.Serializable;
  */
 @Data
 @TableName("resgroupbindtbl")
-@DataSource(value = DataSourceType.SLAVE2)
 public class Resgroupbindtbl3 extends BaseEntity implements Serializable {
 
     private static final long serialVersionUID=1L;

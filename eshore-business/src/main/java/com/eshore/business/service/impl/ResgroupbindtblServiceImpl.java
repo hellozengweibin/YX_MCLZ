@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import java.util.Date;
 import java.util.List;
 
+import com.eshore.common.annotation.DataSource;
 import com.eshore.common.core.domain.model.LoginUser;
+import com.eshore.common.enums.DataSourceType;
 import com.eshore.common.exception.BizException;
 import com.eshore.common.utils.Assert;
 import com.eshore.common.utils.DateUtils;
@@ -27,6 +29,7 @@ import org.springframework.web.multipart.MultipartFile;
  * @date 2023-11-20
  */
 @Service
+@DataSource(value = DataSourceType.SLAVE1)
 public class ResgroupbindtblServiceImpl extends ServiceImpl<ResgroupbindtblMapper,Resgroupbindtbl> implements IResgroupbindtblService {
     @Autowired
     private ResgroupbindtblMapper resgroupbindtblMapper;

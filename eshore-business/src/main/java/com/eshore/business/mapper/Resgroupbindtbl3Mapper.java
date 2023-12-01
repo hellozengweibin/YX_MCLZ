@@ -17,7 +17,6 @@ import com.eshore.business.domain.form.Resgroupbindtbl3Form;
  * @date 2023-11-20
  */
 @Mapper
-@DataSource(value = DataSourceType.SLAVE2)
 public interface Resgroupbindtbl3Mapper extends BaseMapper<Resgroupbindtbl3> {
     /**
      * 查询resgroupbindtbl3

@@ -3,6 +3,9 @@ package com.eshore.business.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 
 import java.util.List;
+
+import com.eshore.common.annotation.DataSource;
+import com.eshore.common.enums.DataSourceType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.eshore.business.mapper.ChanneltblMapper;
@@ -18,6 +21,7 @@ import com.eshore.business.domain.form.ChanneltblForm;
  * @date 2023-11-16
  */
 @Service
+@DataSource(value = DataSourceType.SLAVE1)
 public class ChanneltblServiceImpl extends ServiceImpl<ChanneltblMapper,Channeltbl> implements IChanneltblService {
     @Autowired
     private ChanneltblMapper channeltblMapper;

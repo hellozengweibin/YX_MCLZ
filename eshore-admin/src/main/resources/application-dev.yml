@@ -65,22 +65,22 @@ spring:
       master:
         url: jdbc:mysql://132.122.1.76:9527/mclz?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
         username: root
-        password: s@LRd21iK
-#        password: ENC(wUQaW2TuNmvqTOkrmmVd9hTl9VnVwqp2)
-      # 从库数据源
-      slave:
-        # 从数据源开关/默认关闭
-        enabled: true
-        url: jdbc:mysql://132.122.1.76:9527/ivms440100?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
-        username: root
-        password: s@LRd21iK
+        password: 's@LRd21iK'
+      #        password: ENC(wUQaW2TuNmvqTOkrmmVd9hTl9VnVwqp2)
       # 从库数据源
       slave2:
         # 从数据源开关/默认关闭
         enabled: true
+        url: jdbc:mysql://132.122.1.76:9527/ivms440100?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
+        username: root
+        password: 's@LRd21iK'
+      # 从库数据源
+      slave3:
+        # 从数据源开关/默认关闭
+        enabled: true
         url: jdbc:mysql://132.122.1.76:9527/ivmsai?useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=true&serverTimezone=GMT%2B8
         username: root
-        password: s@LRd21iK
+        password: 's@LRd21iK'
       # 初始连接数
       initialSize: 5
       # 最小连接池数量
@@ -110,7 +110,7 @@ spring:
         # 控制台管理用户名和密码
         login-username: ruoyi
         login-password: 123456
-#        login-password: ENC(NtMKc8CX2yO9E1ctbt+zKg==)
+      #        login-password: ENC(NtMKc8CX2yO9E1ctbt+zKg==)
       filter:
         stat:
           enabled: true
@@ -121,30 +121,30 @@ spring:
         wall:
           config:
             multi-statement-allow: true
-#    # redis 配置
-#  redis:
-#    # 地址
-#    host: 132.122.1.76
-#    #    host: 124.71.75.104
-#    # 端口，默认为6379
-#    port: 6379
-#    # 数据库索引
-#    database: 11
-#    password: 3KOf6EVW
-##    password: ENC(4jTRrU8rOGhkEleffA8UB25KNguOc5yp)
-#    #    password: Eshore#12
-#    # 连接超时时间
-#    timeout: 10s
-#    lettuce:
-#      pool:
-#        # 连接池中的最小空闲连接
-#        min-idle: 0
-#        # 连接池中的最大空闲连接
-#        max-idle: 8
-#        # 连接池的最大数据库连接数
-#        max-active: 8
-#        # #连接池最大阻塞等待时间（使用负值表示没有限制）
-#        max-wait: -1ms
+    # redis 配置
+  redis:
+    # 地址
+    host: 132.122.1.76
+    #    host: 124.71.75.104
+    # 端口，默认为6379
+    port: 6379
+    # 数据库索引
+    database: 11
+    password: 3KOf6EVW
+    #    password: ENC(4jTRrU8rOGhkEleffA8UB25KNguOc5yp)
+    #    password: Eshore#12
+    # 连接超时时间
+    timeout: 10s
+    lettuce:
+      pool:
+        # 连接池中的最小空闲连接
+        min-idle: 0
+        # 连接池中的最大空闲连接
+        max-idle: 8
+        # 连接池的最大数据库连接数
+        max-active: 8
+        # #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1ms
 # token配置
 token:
   # 令牌自定义标识
@@ -176,9 +176,9 @@ aes:
     show-log: true
     # AES秘钥不能超过16位,如果开启加密记得同时修改前端的配置文件  6c557539af692968
     secret-key: 6c557539af692968
-#    secret-key: ENC(meIG0H8UZjOiGC2NwrNOLRYwt9zlEeQBn4L0Sf1jYUI=)
+    #    secret-key: ENC(meIG0H8UZjOiGC2NwrNOLRYwt9zlEeQBn4L0Sf1jYUI=)
     iv: 1234567890abcdef
-#    iv: ENC(3Aag/XPoqhVdYo9PShup5Duz8gj+Ei6EKoqjs+scsog=)
+    #    iv: ENC(3Aag/XPoqhVdYo9PShup5Duz8gj+Ei6EKoqjs+scsog=)
     # 处理url上的加密参数键名，如:?requestParam=XXXX，将被解析为密文，会进行请求参数的重新包装
     request-param-key-name: requestParam
     # 处理请求体body的加密参数，如：{"requestData":XXXX}，将被解析为密文
@@ -189,7 +189,7 @@ messageConfig:
   url: http://139.129.107.160:8085/sendsms.php
   msgPrefix: 【平安警视】
   account: 127729
-#  password: ENC(+dMHtfUvpT5Q01R716V0CjdzwHd+bYYICTfWTE2wu4BeMui+LdgGIHlnrCgoWrKn)
+  #  password: ENC(+dMHtfUvpT5Q01R716V0CjdzwHd+bYYICTfWTE2wu4BeMui+LdgGIHlnrCgoWrKn)
   password: 7d769edb49bce554f9c35a961313664c
   #当天某个账号短信次数限制
   maxOneDay: 50
@@ -237,18 +237,29 @@ minio:
   outputAddress: http://132.122.1.76:9000
   accessKey: admin
   secretKey: Nidw8asz91.s6
-#  secretKey: ENC(tZai/CtxqW2+3UxntVjz9Xur/Xpwz3yQ)
+  #  secretKey: ENC(tZai/CtxqW2+3UxntVjz9Xur/Xpwz3yQ)
   bucket:
     - aibox
     - aiboxalarm
   urlExpiredSeconds: 60
   # 定义多少天后删除参数
   dayOffSet: -30
+#
+#minio:
+#  server: 127.0.0.1
+#  port: 9000
+#minio:
+#  apiFileIp: 127.0.0.1:9090
+#  outputAddress: 127.0.0.1:9090
+#  web_url: http://132.126.3.234:8081
+#  access_key: minioadmin
+#  secret_key: minioadmin
+#  urlExpiredSeconds: 10
+#  dilatation: "file00"
 
-
-zgdx_shiJueZhiLian:
-  commonUrl: 140.249.148.37:17080/api/dict
-  memberKey: oqcyjmJpaHZsBU2RIim0
-  secret: 5n01793f
-  appKey: 5910240001
+#zgdx_shiJueZhiLian:
+#  commonUrl: 140.249.148.37:17080/api/dict
+#  memberKey: oqcyjmJpaHZsBU2RIim0
+#  secret: 5n01793f
+#  appKey: 5910240001
 

@@ -12,9 +12,17 @@ public enum DataSourceType {
     MASTER,
 
     /**
-     * 从库
+     * 从库1
      */
-    SLAVE,
+    SLAVE1,
 
-    SLAVE2
+    /**
+     * 从库2
+     */
+    SLAVE2,
+
+    /**
+     * 从库3
+     */
+    SLAVE3
 }
