@@ -187,12 +187,12 @@ export default {
       },
       // 表单参数
       form: {
-        resgroupid:'44020000002160000001',
-        bindrestype:131
+        resgroupid:null,
+        bindrestype:null,
       },
       form2: {
-        resgroupid:'44020000002160000006',
-        bindrestype:131
+        resgroupid:null,
+        bindrestype:null,
       },
       // 表单校验
       rules: {
